@@ -24,3 +24,35 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import 'variables';
+
+:root {
+  @each $color, $code in $colors {
+    --color-#{'' + $color}: #{$code};
+    --color-#{'' + $color}-rgb: #{rgba($code, 1)};
+  }
+}
+
+@each $color, $code in $colors {
+  .color-#{"" + $color} {
+    --color-base: var(--color-#{"" + $color}) !important;
+    --color-base-rgb: var(--color-#{"" + $color}-rgb) !important;
+  }
+  .color-#{"" + $color} {
+    color: var(--color-#{"" + $color});
+  }
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("assets/font/Roboto/Roboto-Regular.ttf") format('truetype');
+}
+
+* {
+  font-family: 'Roboto';
+}
+
+body{
+  margin: 0px;
+  background-color: #f0f5f7;
+}
