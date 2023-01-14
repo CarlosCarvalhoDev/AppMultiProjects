@@ -1,0 +1,7 @@
+{
+  "name": "AppMultiProjects",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
