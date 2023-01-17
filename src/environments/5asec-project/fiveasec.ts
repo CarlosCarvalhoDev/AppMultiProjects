@@ -5,6 +5,6 @@ export const environment: EnvironmentAppModel = {
   production: false,
   cores: {
     "primary": "#85DCB",
-    "secondary": "#E27D60"
+    "secondary": "#E2D60"
   }
 }
