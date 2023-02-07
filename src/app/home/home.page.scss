@@ -1,27 +1,94 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+@import 'variables';
+@import 'home';
+.wrapper-header {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  img {
+    display: flex;
+    height: 50px;
+  }
 }
+.wrapper-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  .wrapper-products{
+    max-width: 375px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      padding-bottom: 0px;
+      margin: 5px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      /* width definido via env */
+      background-color: #fff;
+      .product-content{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .product-image {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--color-secondary);
+          border-radius: 10px;
+          height: 90px;
+          img {
+            height: 40px;
+          }
+        }
+        .product-info {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin: 8px;
+          margin-bottom: 0px;
+          h1,h2{
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+          }
+          h1 {
+            color: black;
+            font-size: 1rem;
+            margin: 2px;
+          }
+          h2 {
+            margin: 2px;
+            font-size: 0.8rem;
+            color: black;
+          }
+        }
+      }
+      .product-button{
+        position: relative;
+        bottom: -12px;
+        height: 25px;
+        background-color: pink;
+        color: map-get($colors-contrast, 'secondary');
+        border: 0px;
+        width: 80%;
+        border-radius: 15px;
+      }
+    }
+  }
 }

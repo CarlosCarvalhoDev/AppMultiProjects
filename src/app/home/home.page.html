@@ -1,20 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header class="wrapper-header">
+  <img src="assets/logo.png" alt="Logo do supermercado mostrando um desenho ilustrativo da loja">
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content class="wrapper-content">
+  <ion-segment class="wrapper-products">
+    <div class="product" *ngFor="let product of products$ | async">
+      <div class="product-content">
+        <div class="product-image">
+          <img [src]="product.image">
+        </div>
+        <div class="product-info">
+          <h1>{{product.name}}</h1>
+          <h2>{{product.preco}}</h2>
+        </div>
+      </div>
+      <ion-button class="product-button">
+        Adicionar
+      </ion-button>
+    </div>
+  </ion-segment>
 </ion-content>

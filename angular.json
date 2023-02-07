@@ -35,7 +35,68 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "idex": {
+              "styles": [
+                "src/global.scss"
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/idex-project/idex.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "./src/environments/idex-project/styles"
+                ]
+              },
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "./src/assets",
+                  "output": "/assets"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "./src/environments/idex-project/assets",
+                  "output": "assets/"
+                }
+              ]
+            },
+            "idex-prod": {
+              "styles": [
+                "src/global.scss"
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/idex-project/idex-prod.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "./src/environments/idex-project/styles"
+                ]
+              },
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "./src/assets",
+                  "output": "/assets"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "./src/environments/idex-project/assets",
+                  "output": "assets/"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -44,46 +105,108 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
+              ]
+            },
+            "fiveasec": {
+              "styles": [
+                "src/global.scss"
               ],
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/5asec-project/fiveasec.ts"
                 }
               ],
-              "outputHashing": "all"
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "./src/environments/5asec-project/styles"
+                ]
+              },
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "./src/assets",
+                  "output": "/assets"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "./src/environments/5asec-project/assets",
+                  "output": "assets/"
+                }
+              ]
             },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            },
-            "ci": {
-              "progress": false
+            "fiveasec-prod": {
+              "styles": [
+                "src/global.scss"
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/5asec-project/fiveasec-prod.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "./src/environments/5asec-project/styles"
+                ]
+              },
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "./src/assets",
+                  "output": "/assets"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "./src/environments/5asec-project/assets",
+                  "output": "assets/"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "browserTarget": "app:build:production"
+            "idex": {
+              "browserTarget": "app:build:idex"
             },
-            "development": {
-              "browserTarget": "app:build:development"
+            "idex-prod": {
+              "browserTarget": "app:build:idex-prod"
+            },
+            "fiveasec": {
+              "browserTarget": "app:build:fiveasec"
+            },
+            "fiveasec-prod": {
+              "browserTarget": "app:build:fiveasec-prod"
             },
             "ci": {
               "progress": false
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "idex"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
