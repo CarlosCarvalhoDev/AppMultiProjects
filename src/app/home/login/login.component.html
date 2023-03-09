@@ -1,0 +1,35 @@
+<!-- <div class="container"> -->
+  <div class="login-container">
+    <div class="login-header">
+      <!-- <h1>Allegro Smart</h1> -->
+      <img src="assets/logo.png" alt="logo">
+      <!-- <img src="assets/Idex-white.png" alt="logo"> -->
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <ion-item>
+        <ion-label position="floating">Login</ion-label>
+        <ion-input type="text" formControlName="login"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+
+      <div class="toggle-container">
+        <ion-label>Lembrar senha</ion-label>
+        <ion-toggle toggle-class="toggle-positive" [(ngModel)]="rememberMe" (ionchange)="savePassword()">Remember me</ion-toggle>
+      </div>
+
+
+      <button type="submit" expand="block" [disabled]="loginForm.invalid" class="custom-button">Entrar</button>
+
+    </form>
+
+    <div class="footer-container">
+      <p>© 2023 Allegro Smart. All rights reserved.</p>
+    </div>
+  </div>
+<!-- </div> -->
+

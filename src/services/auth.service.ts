@@ -1,8 +1,8 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IClient } from 'src/interfaces/client.interface';
-
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +10,20 @@ import { IClient } from 'src/interfaces/client.interface';
 
 export class AuthService {
 
+  codigoEmpresa = parseInt(localStorage.getItem('codigoEmpresa') || '0').toString();
+  codigoLoja = parseInt(localStorage.getItem('codigoLoja') || '0').toString();
+
+  headers = new HttpHeaders({
+    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+  });
+
   constructor(private _http: HttpClient) { }
 
-  getClient(): Observable<IClient> {
-    return this._http.get<IClient>('/api/client');
+  login(login: string, password: string): Observable<HttpResponse<any>> {
+    let url = `${environment.baseref}/api/cliente/login/${this.codigoEmpresa}/${login}/${password}`;
+    console.log(url);
+    return this._http.get<HttpResponse<any>>(url,{ headers: this.headers });
   }
 
-  login(email: string, password: string): Observable<HttpResponse<any>> {
-    return this._http.post<HttpResponse<any>>('/api/login', { email, password });
-  }
+
 }

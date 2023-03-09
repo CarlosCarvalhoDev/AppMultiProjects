@@ -1,25 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { ProductModel } from 'src/models/product.model';
-import { ProductsService } from 'src/services/products.service';
-import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage{
 
-  env = environment
-  products$: Observable<ProductModel[]> | undefined
+  constructor(private router: Router) {
+    let codigoEmpresa = parseInt(localStorage.getItem('codigoEmpresa') || '0').toString();
+    console.log(codigoEmpresa, 'homepage');
 
-  constructor(private productsService: ProductsService) {}
-
-  ngOnInit(): void{
-    this.products$ = this.productsService.getAllProducts()
-    .pipe(
-      map(res => res.payload)
-    )
+    if(codigoEmpresa){
+      this.router.navigate(['/home/login']);
+    }else{
+      this.router.navigate(['/home/register']);
+    }
   }
+
 }

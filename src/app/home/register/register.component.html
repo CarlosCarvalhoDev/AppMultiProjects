@@ -1,0 +1,15 @@
+<ion-content>
+  <div class="register-input">
+    <p>
+      Informe o número do registro para iniciar a ultilização do dispositivo
+    </p>
+
+    <ion-list lines="full">
+      <ion-item>
+        <ion-input [(ngModel)]="serial"></ion-input>
+      </ion-item>
+    </ion-list>
+    <br>
+    <ion-button expand="block" (click)="registrar()">Registrar</ion-button>
+  </div>
+</ion-content>

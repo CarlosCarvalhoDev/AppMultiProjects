@@ -1,21 +1,4 @@
-<ion-header class="wrapper-header">
-  <img src="assets/logo.png" alt="Logo do supermercado mostrando um desenho ilustrativo da loja">
-</ion-header>
-<ion-content class="wrapper-content">
-  <ion-segment class="wrapper-products">
-    <div class="product" *ngFor="let product of products$ | async">
-      <div class="product-content">
-        <div class="product-image">
-          <img [src]="product.image">
-        </div>
-        <div class="product-info">
-          <h1>{{product.name}}</h1>
-          <h2>{{product.preco}}</h2>
-        </div>
-      </div>
-      <ion-button class="product-button">
-        Adicionar
-      </ion-button>
-    </div>
-  </ion-segment>
+<ion-content padding>
+  <!-- <img src="assets/logo.jpg" class="logo-center"> -->
+  <ion-router-outlet></ion-router-outlet>
 </ion-content>

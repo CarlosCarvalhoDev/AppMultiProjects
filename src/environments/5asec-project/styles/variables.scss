@@ -1,9 +1,11 @@
 $colors: (
-  primary: #e7672c,
-  secondary: #7646a6,
+  first: #5b1257,
+  second: #d35400,
 
 );
 
 $colors-contrast: (
   secondary: rgb(120, 156, 28)
 );
+
+$background-color: linear-gradient(to top right, #56bb5c, #53ae7a, #51a391, #509ba2, #5092b2);
